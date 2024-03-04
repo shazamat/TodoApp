@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="images/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz@0,9..40;1,9..40&display=swap" rel="stylesheet">
+    <title>Список заметок</title>
+</head>
+<body>
+    <div id="app">
+       <div class="container">
+            <div class="header-content">
+                <img src="images/logo.svg" alt="логотип" >
+                <h1>{{ title }}</h1>
+            </div>
+            <div class="form-control">
+                <input 
+                    type="text" 
+                    :placeholder="placeholderString"
+                    v-model="inputValue"
+                    @keypress.enter="addNewNote"
+                />
+            </div>
+            <button class="btn addbutton" @click="addNewNote">Добавить</button>
+            <hr />
+            <div class="notes">
+                <ul class="list" v-if="notes.length !== 0">
+                    <li class="list-item" v-for="(note, index) in notes">
+                        {{ note }}
+                        <button class="danger" @click="removeNote(index)">Удалить</button>
+                    </li>
+                    <hr />
+                    <li>
+                        <strong>Общее количество: {{ notes.length }}</strong>
+                    </li>
+                </ul>
+                <div v-if="notes.length === 0">Заметок пока нет !</div>
+            </div>
+       </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
