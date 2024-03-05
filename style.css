@@ -81,3 +81,24 @@ hr {
     justify-content: space-between;
     background-color: #F4F2FF;
 }
+
+@media (max-width: 480px) {
+    body {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        background-color: #D5CCFF;
+    }
+    .container {
+        margin: 10px;
+        width: 100%;
+    }
+
+    input {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 5px;
+        margin-top: 20px;
+    }
+  }
+
